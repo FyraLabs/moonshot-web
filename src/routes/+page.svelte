@@ -84,27 +84,45 @@
                             {/snippet}
                         </DropdownMenu.Trigger>
                         <DropdownMenu.Content>
-                            <DropdownMenu.Item
-                                onclick={() => openRelease(macDownloadUrl)}
-                            >
-                                macOS
+                            <DropdownMenu.Item>
+                                <a
+                                    href={macDownloadUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="block w-full"
+                                >
+                                    macOS
+                                </a>
                             </DropdownMenu.Item>
-                            <DropdownMenu.Item
-                                onclick={() =>
-                                    openRelease(windowsX64DownloadUrl)}
-                            >
-                                Windows x64
+                            <DropdownMenu.Item>
+                                <a
+                                    href={windowsX64DownloadUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="block w-full"
+                                >
+                                    Windows x64
+                                </a>
                             </DropdownMenu.Item>
-                            <DropdownMenu.Item
-                                onclick={() =>
-                                    openRelease(windowsArmDownloadUrl)}
-                            >
-                                Windows ARM
+                            <DropdownMenu.Item>
+                                <a
+                                    href={windowsArmDownloadUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="block w-full"
+                                >
+                                    Windows ARM
+                                </a>
                             </DropdownMenu.Item>
-                            <DropdownMenu.Item
-                                onclick={() => openRelease(latestReleaseUrl)}
-                            >
-                                Linux
+                            <DropdownMenu.Item>
+                                <a
+                                    href={latestReleaseUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="block w-full"
+                                >
+                                    Linux
+                                </a>
                             </DropdownMenu.Item>
                         </DropdownMenu.Content>
                     </DropdownMenu.Root>
