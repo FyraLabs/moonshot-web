@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import AsciiHeader from "$lib/components/AsciiHeader.svelte";
     import GitHub from "$lib/components/icon/GitHub.svelte";
     import { Download, ChevronDown } from "@lucide/svelte";
@@ -7,6 +7,49 @@
     import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
     import { ButtonGroup } from "$lib/components/ui/button-group/index.js";
     import { Separator } from "$lib/components/ui/separator";
+
+    const latestReleaseUrl =
+        "https://github.com/FyraLabs/moonshot/releases/latest";
+    const macDownloadUrl =
+        "https://github.com/FyraLabs/moonshot/releases/latest/download/Moonshot.app.zip";
+    const windowsX64DownloadUrl =
+        "https://github.com/FyraLabs/moonshot/releases/latest/download/moonshot-x64.exe";
+    const windowsArmDownloadUrl =
+        "https://github.com/FyraLabs/moonshot/releases/latest/download/moonshot-arm64.exe";
+
+    function getAutoDownloadUrl() {
+        const userAgent = navigator.userAgent.toLowerCase();
+        const platform = navigator.platform.toLowerCase();
+
+        if (platform.includes("mac") || userAgent.includes("mac os")) {
+            return macDownloadUrl;
+        }
+
+        if (platform.includes("win") || userAgent.includes("windows")) {
+            const isArm =
+                userAgent.includes("arm64") ||
+                userAgent.includes("aarch64") ||
+                userAgent.includes("arm;") ||
+                userAgent.includes("windows arm") ||
+                userAgent.includes("windows on arm");
+
+            return isArm ? windowsArmDownloadUrl : windowsX64DownloadUrl;
+        }
+
+        if (
+            platform.includes("linux") ||
+            userAgent.includes("linux") ||
+            userAgent.includes("x11")
+        ) {
+            return latestReleaseUrl;
+        }
+
+        return latestReleaseUrl;
+    }
+
+    function openRelease(url: string) {
+        window.open(url, "_blank", "noopener,noreferrer");
+    }
 </script>
 
 <svelte:head>
@@ -20,17 +63,11 @@
                 Moonshot
             </h1>
             <div class="flex flex-row gap-3 py-3">
-                <Button
-                    variant="default"
-                    href="https://github.com/FyraLabs/moonshot/releases/latest"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Download />
-                    Download
-                </Button>
-                <!-- <ButtonGroup>
-                    <Button variant="default">
+                <ButtonGroup>
+                    <Button
+                        variant="default"
+                        onclick={() => openRelease(getAutoDownloadUrl())}
+                    >
                         <Download />
                         Download
                     </Button>
@@ -47,12 +84,29 @@
                             {/snippet}
                         </DropdownMenu.Trigger>
                         <DropdownMenu.Content>
-                            <DropdownMenu.Item>Linux</DropdownMenu.Item>
-                            <DropdownMenu.Item>Windows</DropdownMenu.Item>
-                            <DropdownMenu.Item>macOS</DropdownMenu.Item>
+                            <DropdownMenu.Item
+                                onclick={() => openRelease(macDownloadUrl)}
+                            >
+                                macOS
+                            </DropdownMenu.Item>
+                            <DropdownMenu.Item
+                                onclick={() => openRelease(windowsX64DownloadUrl)}
+                            >
+                                Windows x64
+                            </DropdownMenu.Item>
+                            <DropdownMenu.Item
+                                onclick={() => openRelease(windowsArmDownloadUrl)}
+                            >
+                                Windows ARM
+                            </DropdownMenu.Item>
+                            <DropdownMenu.Item
+                                onclick={() => openRelease(latestReleaseUrl)}
+                            >
+                                Linux
+                            </DropdownMenu.Item>
                         </DropdownMenu.Content>
                     </DropdownMenu.Root>
-                </ButtonGroup> -->
+                </ButtonGroup>
                 <Button
                     variant="outline"
                     href="https://github.com/FyraLabs/moonshot"
