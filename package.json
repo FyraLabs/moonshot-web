@@ -14,7 +14,8 @@
 		"cf-typegen": "wrangler types ./src/worker-configuration.d.ts"
 	},
 	"devDependencies": {
-		"@lucide/svelte": "^0.563.1",
+		"@internationalized/date": "^3.11.0",
+		"@lucide/svelte": "^0.561.0",
 		"@sveltejs/adapter-auto": "^7.0.0",
 		"@sveltejs/adapter-cloudflare": "^7.2.6",
 		"@sveltejs/kit": "^2.50.1",
@@ -22,6 +23,7 @@
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.1.18",
 		"@types/node": "^25.2.2",
+		"bits-ui": "^2.16.1",
 		"clsx": "^2.1.1",
 		"svelte": "^5.48.2",
 		"svelte-check": "^4.3.5",
@@ -34,6 +36,9 @@
 		"wrangler": "^4.63.0"
 	},
 	"dependencies": {
+		"@fontsource-variable/geist": "^5.2.8",
+		"@fontsource-variable/geist-mono": "^5.2.7",
+		"mode-watcher": "^1.1.0",
 		"motion": "^12.34.0"
 	}
 }

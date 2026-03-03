@@ -178,11 +178,11 @@
         if (!cardRef) return;
 
         const fontSize = 8;
-        const charWidthApprox = fontSize * 0.6;
+        const charWidthApprox = fontSize * 0.5;
 
         const rect = cardRef.getBoundingClientRect();
-        const newWidth = Math.ceil(rect.width / charWidthApprox);
-        const newHeight = Math.ceil(rect.height / fontSize);
+        const newWidth = Math.floor(rect.width / charWidthApprox);
+        const newHeight = Math.floor(rect.height / fontSize);
 
         if (width !== newWidth || height !== newHeight) {
             width = Math.max(1, newWidth);
@@ -227,26 +227,27 @@
         width: 100%;
         max-width: 700px;
         height: 300px;
-        background-color: #1a1a1a;
+        background-color: var(--card);
         border-radius: 0.5rem;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow-md);
         overflow: hidden;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 1px solid #e5e7eb;
+        border: 1px solid var(--border);
     }
 
     .ascii-container {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        right: 0;
         height: 100%;
         font-family: "Courier New", Courier, monospace;
         font-size: 8px;
         line-height: 8px;
+        letter-spacing: 0.05ch;
         white-space: pre;
         overflow: hidden;
         z-index: 1;
@@ -254,6 +255,7 @@
         pointer-events: none;
         background: linear-gradient(180deg, #ffffff 0%, #9ca3af 100%);
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
@@ -261,7 +263,7 @@
         position: relative;
         z-index: 10;
         text-align: center;
-        color: white;
+        color: var(--foreground);
         width: 100%;
         height: 100%;
         display: flex;
