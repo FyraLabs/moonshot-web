@@ -90,12 +90,14 @@
                                 macOS
                             </DropdownMenu.Item>
                             <DropdownMenu.Item
-                                onclick={() => openRelease(windowsX64DownloadUrl)}
+                                onclick={() =>
+                                    openRelease(windowsX64DownloadUrl)}
                             >
                                 Windows x64
                             </DropdownMenu.Item>
                             <DropdownMenu.Item
-                                onclick={() => openRelease(windowsArmDownloadUrl)}
+                                onclick={() =>
+                                    openRelease(windowsArmDownloadUrl)}
                             >
                                 Windows ARM
                             </DropdownMenu.Item>
