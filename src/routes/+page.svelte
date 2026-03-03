@@ -20,7 +20,16 @@
                 Moonshot
             </h1>
             <div class="flex flex-row gap-3 py-3">
-                <ButtonGroup>
+                <Button
+                    variant="default"
+                    href="https://github.com/FyraLabs/moonshot/releases/latest"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <Download />
+                    Download
+                </Button>
+                <!-- <ButtonGroup>
                     <Button variant="default">
                         <Download />
                         Download
@@ -43,7 +52,7 @@
                             <DropdownMenu.Item>macOS</DropdownMenu.Item>
                         </DropdownMenu.Content>
                     </DropdownMenu.Root>
-                </ButtonGroup>
+                </ButtonGroup> -->
                 <Button
                     variant="outline"
                     href="https://github.com/FyraLabs/moonshot"
