@@ -77,7 +77,7 @@
                     </Card.Header>
                     <Card.Content>
                         <p class="text-muted-foreground">
-                            Written in Go, Svelte, and Wails, the app feels
+                            Written in Go, Svelte, and Wails, Moonshot feels
                             snappy and flashes fast.
                         </p>
                     </Card.Content>
